@@ -4,8 +4,8 @@
 Summary:	%{_pearname} - regression testing framework for unit tests
 Summary(pl):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
-Version:	0.3
-Release:	2
+Version:	0.4
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -30,10 +30,11 @@ który mo¿na znale¼æ pod adresem http://www.junit.org/.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/GUI
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/{%{_class},GUI}
 
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/
-install %{_pearname}-%{version}/GUI/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/GUI
+install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
+install %{_pearname}-%{version}/GUI/*.php $RPM_BUILD_ROOT%{php_pear_dir}//GUI
+install %{_pearname}-%{version}/%{_class}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -42,6 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_pearname}-%{version}/GUI/README
 %dir %{php_pear_dir}/%{_class}
-%dir %{php_pear_dir}/%{_class}/GUI
+%dir %{php_pear_dir}/GUI
 %{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/GUI/*.php
+%{php_pear_dir}/GUI/*.php
+%{php_pear_dir}/*.php
