@@ -2,15 +2,16 @@
 %define		_class		PHPUnit
 %define		_status		alpha
 %define		_pearname	%{_class}
+%define		_alpha		alpha2
 Summary:	%{_pearname} - regression testing framework for unit tests
 Summary(pl):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
-Release:	0.alpha1
+Release:	0.%{_alpha}
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}-alpha1.tgz
-# Source0-md5:	4ebb22d0a183612dfa53f75da225d0b8
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}-%{_alpha}.tgz
+# Source0-md5:	dc4796a04b1a51b820d2ed057908c7cb
 URL:		http://pear.php.net/package/%{_pearname}/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
@@ -32,22 +33,22 @@ który mo¿na znale¼æ pod adresem http://www.junit.org/.
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c -n %{name}-%{version}-alpha1
+%setup -q -c -n %{name}-%{version}-%{_alpha}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/{Extensions/Logger,Framework,Runner,TextUI}
 
-#install %{_pearname}-%{version}-alpha1/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
-install %{_pearname}-%{version}-alpha1/Extensions/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions
-install %{_pearname}-%{version}-alpha1/Extensions/Logger/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions/Logger
-install %{_pearname}-%{version}-alpha1/Framework/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Framework
-install %{_pearname}-%{version}-alpha1/Runner/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Runner
+#install %{_pearname}-%{version}-%{_alpha}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
+install %{_pearname}-%{version}-%{_alpha}/Extensions/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions
+install %{_pearname}-%{version}-%{_alpha}/Extensions/Logger/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions/Logger
+install %{_pearname}-%{version}-%{_alpha}/Framework/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Framework
+install %{_pearname}-%{version}-%{_alpha}/Runner/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Runner
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}-alpha1/Tests
+%doc %{_pearname}-%{version}-%{_alpha}/Tests
 %{php_pear_dir}/%{_class}
