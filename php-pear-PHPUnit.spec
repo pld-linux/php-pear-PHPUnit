@@ -1,16 +1,16 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		PHPUnit
-%define		_status		stable
+%define		_status		alpha
 %define		_pearname	%{_class}
 Summary:	%{_pearname} - regression testing framework for unit tests
 Summary(pl):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
-Version:	0.6.2
-Release:	1
+Version:	1.0.0
+Release:	0.alpha1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	398c7c06e9da6a93528d06df715723aa
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}-alpha1.tgz
+# Source0-md5:	4ebb22d0a183612dfa53f75da225d0b8
 URL:		http://pear.php.net/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
@@ -32,23 +32,22 @@ który mo¿na znale¼æ pod adresem http://www.junit.org/.
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c
+%setup -q -c -n %{name}-%{version}-alpha1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/{,GUI}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/{Extensions/Logger,Framework,Runner,TextUI}
 
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
-install %{_pearname}-%{version}/%{_class}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
-install %{_pearname}-%{version}/%{_class}/GUI/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/GUI
+#install %{_pearname}-%{version}-alpha1/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
+install %{_pearname}-%{version}-alpha1/Extensions/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions
+install %{_pearname}-%{version}-alpha1/Extensions/Logger/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Extensions/Logger
+install %{_pearname}-%{version}-alpha1/Framework/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Framework
+install %{_pearname}-%{version}-alpha1/Runner/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/Runner
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{php_pear_dir}/%{_class}
-%dir %{php_pear_dir}/%{_class}/GUI
-%{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/GUI/*.php
-%{php_pear_dir}/*.php
+%doc %{_pearname}-%{version}-alpha1/Tests
+%{php_pear_dir}/%{_class}
