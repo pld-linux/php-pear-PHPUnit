@@ -23,7 +23,7 @@ PHPUnit is a regression testing framework used by the developer who
 implements unit tests in PHP. It is based upon JUnit, which can be
 found at http://www.junit.org/.
 
-This class has in PEAR status: %{_status}.
+In PEAR status of this package is: %{_status}.
 
 %description -l pl
 PHPUnit jest zestawem testów regresyjnych u¿ywanych przez developerów,
