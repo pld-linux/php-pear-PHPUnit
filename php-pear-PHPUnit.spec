@@ -6,12 +6,12 @@
 Summary:	%{_pearname} - regression testing framework for unit tests
 Summary(pl):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	d05995d34f2059980fc9fb52fe611463
+# Source0-md5:	855837793795929d53cb0d6d9f872830
 URL:		http://pear.php.net/package/PHPUnit/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
