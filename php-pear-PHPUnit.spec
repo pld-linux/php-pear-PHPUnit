@@ -1,15 +1,16 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		PHPUnit
+%define		_status		stable
 %define		_pearname	%{_class}
 Summary:	%{_pearname} - regression testing framework for unit tests
 Summary(pl):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-# Source0-md5:	e0e8b506ba763942eb695126ce29fbd2
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+# Source0-md5:	398c7c06e9da6a93528d06df715723aa
 URL:		http://pear.php.net/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
@@ -21,30 +22,33 @@ PHPUnit is a regression testing framework used by the developer who
 implements unit tests in PHP. It is based upon JUnit, which can be
 found at http://www.junit.org/.
 
+This class has in PEAR status: %{_status}.
+
 %description -l pl
 PHPUnit jest zestawem testów regresyjnych u¿ywanych przez developerów,
 którzy implementuj± jednostki testowe w PHP. Jest bazowane na JUnit,
 który mo¿na znale¼æ pod adresem http://www.junit.org/.
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/{%{_class},GUI}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/{,GUI}
 
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/
-install %{_pearname}-%{version}/GUI/*.php $RPM_BUILD_ROOT%{php_pear_dir}//GUI
 install %{_pearname}-%{version}/%{_class}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
+install %{_pearname}-%{version}/%{_class}/GUI/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/GUI
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/GUI/README
 %dir %{php_pear_dir}/%{_class}
-%dir %{php_pear_dir}/GUI
+%dir %{php_pear_dir}/%{_class}/GUI
 %{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/GUI/*.php
+%{php_pear_dir}/%{_class}/GUI/*.php
 %{php_pear_dir}/*.php
