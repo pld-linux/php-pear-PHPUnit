@@ -4,7 +4,7 @@
 Summary:	%{_class} - regression testing framework for unit tests
 Summary(pl):	%{_class} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
-Version:	0.2
+Version:	0.3
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
