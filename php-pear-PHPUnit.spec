@@ -33,7 +33,7 @@ który mo¿na znale¼æ pod adresem http://www.junit.org/.
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c -n %{name}-%{version}
+%setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
