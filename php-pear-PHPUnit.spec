@@ -4,7 +4,7 @@
 %define		_pearname	%{_class}
 
 Summary:	%{_pearname} - regression testing framework for unit tests
-Summary(pl.UTF-8):   %{_pearname} - zestaw testów regresyjnych
+Summary(pl.UTF-8):	%{_pearname} - zestaw testów regresyjnych
 Name:		php-pear-%{_pearname}
 Version:	1.3.2
 Release:	1
